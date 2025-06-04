@@ -1,0 +1,70 @@
+import React, { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+const initialFaqs = [
+  {
+    question: "🎟️ Tickets & Wristbands",
+    answer: `Wristbands are required to enter the event site and must be collected from the Welcome Office at the following times:\n• Friday: 2:00 PM – 6:00 PM\n• Saturday: 7:00 AM – 5:00 PM\n• Sunday: 7:00 AM – 1:00 PM\n\nIf you’re attending with a rider, wristbands can be collected during rider sign-on.\n\n🔒 Wristbands are colour-coded by ticket type and grant access to specific areas on specific days.\n🚫 Do not swap or attempt to misuse wristbands — access will be denied.`
+  },
+  {
+    question: "Tickets",
+    answer: `• Tickets are available via: www.rhlactivities.com\n• All tickets are e-tickets – no physical tickets will be sent.\n• Download your tickets from your RHL Activities profile or email (especially if purchased before 14th March).\n• Signal can be poor at the beach, so print your tickets or save them to your device beforehand.\n\nℹ️ Why the queue for advance tickets?\nAdvance tickets are discounted and must be exchanged for wristbands on-site.`
+  },
+  {
+    question: "🐶 Event Rules & General Information",
+    answer: `• ✅ Dogs are allowed, but must be kept on a lead and be well-behaved at all times.\n• 🚲 No pushbikes, e-bikes, or e-scooters allowed due to safety.\n• ♿ Mobility scooters are permitted, but e-scooters (even for mobility) are not.\n• 🚗 Disabled parking is available on the beachfront (managed by North Somerset Council).`
+  },
+  {
+    question: "☔ Weather & What to Bring",
+    answer: `• Sturdy boots, layers, and waterproofs (expect sand and unpredictable weather)\n• Folding chair or blanket for comfort\n• Ear protection (especially for kids)\n• Cash (some vendors may be cash-only)\n• Sunscreen – yes, even in October!\n• Powerbank for phone charging`
+  },
+  {
+    question: "📸 Photography & Filming",
+    answer: `• Cameras are allowed, but official photography areas are off-limits unless accredited.\n• Drones are strictly prohibited.\n• Photos/videos must be for personal use only — no commercial sale of content permitted.`
+  },
+  {
+    question: "📱 Mobile Signal & Connectivity",
+    answer: `• Mobile signal can be unreliable.\n• Download your tickets in advance.\n• Bring a powerbank to stay charged throughout the day.`
+  },
+  {
+    question: "🔊 Live Announcements & Commentary",
+    answer: `• Live commentary will run across the beach and promenade throughout the weekend.\n• A live timing board will be located on the promenade.`
+  },
+  {
+    question: "👨‍👩‍👧‍👦 Family Info",
+    answer: `• Weston Beach Race is a family-first event.\n• A Kids Zone with activities will be available – follow our social channels for updates.\n• Children must follow the no bikes/e-scooters rule.\n• Portable baby changing units will be on-site.`
+  },
+  {
+    question: "🚻 Facilities",
+    answer: `• Portable toilets and baby changing stations available.\n• First aid tent located on site – details will be provided on the event map.`
+  },
+  {
+    question: "🍔 Food & Drink",
+    answer: `• Fully licensed bars available on site.\n🚫 No alcohol may be brought into the venue.\n• A wide variety of food vendors will offer diverse cuisines.\n• If you have specific dietary requirements, consider bringing your own snacks.`
+  }
+];
+
+export default function MasonryQuestionStack() {
+  const [faqs] = useState(initialFaqs);
+
+  return (
+    <div className="max-w-6xl mx-auto p-4">
+      <div className="columns-1 sm:columns-2 md:columns-3 gap-4 [column-gap:1.5rem]">
+        {faqs.map((faq, i) => (
+          <div key={i} className="mb-4 break-inside-avoid inline-block w-full">
+            <Card className="w-fit max-w-[40ch] bg-white shadow-lg rounded-2xl border border-gray-100">
+              <CardContent className="p-6 text-sm whitespace-pre-wrap break-words">
+                <h3 className="text-[#eb1c23] font-semibold text-lg leading-tight mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{faq.answer}</p>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
